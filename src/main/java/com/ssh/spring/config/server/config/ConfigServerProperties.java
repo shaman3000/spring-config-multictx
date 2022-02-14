@@ -2,8 +2,10 @@ package com.ssh.spring.config.server.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix = "tenants")
+@ConfigurationProperties(prefix = ConfigServerProperties.TENANTS)
 public class ConfigServerProperties {
+
+    public static final String TENANTS = "tenants";
 
     private TenantProperties commonContext;
 
