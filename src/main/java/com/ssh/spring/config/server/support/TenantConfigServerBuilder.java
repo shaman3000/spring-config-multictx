@@ -15,6 +15,8 @@ import java.util.Properties;
 
 public class TenantConfigServerBuilder {
 
+    public static final String SPRING_CONFIG_LOCATION = "spring.config.location";
+
     private final TenantProperties properties;
 
     public TenantConfigServerBuilder(TenantProperties properties) {
@@ -23,7 +25,7 @@ public class TenantConfigServerBuilder {
 
     public StandardEnvironment createEnvironment() {
         final Properties args = new Properties() {{
-            put("spring.config.location", "classpath:/contexts/" + properties.getTenantId() + "/");
+            put(SPRING_CONFIG_LOCATION, "classpath:/contexts/" + properties.getTenantId() + "/");
         }};
         final StandardEnvironment env = new StandardEnvironment() {{
             setActiveProfiles(properties.getActiveProfiles());
