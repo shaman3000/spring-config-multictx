@@ -1,0 +1,12 @@
+server:
+  port: 8888
+  servlet:
+    contextPath: /config
+
+tenants:
+  common-context:
+    tenant-id: xxxxx
+    active-profiles: native
+  flink-context:
+    tenant-id: yyyyy
+    active-profiles: native
