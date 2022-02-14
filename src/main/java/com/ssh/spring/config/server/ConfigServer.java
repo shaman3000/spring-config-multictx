@@ -10,10 +10,12 @@ import org.springframework.cloud.config.server.config.ConfigServerAutoConfigurat
 @EnableConfigurationProperties(ConfigServerProperties.class)
 public class ConfigServer {
 
+	public static final String CONFIG_SERVER = "config-server";
+
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(ConfigServer.class)
-				.properties("spring.config.name=config-server",
-							"spring.application.name=config-server")
+				.properties("spring.config.name=" + CONFIG_SERVER,
+							"spring.application.name=" + CONFIG_SERVER)
 				.run(args);
 	}
 
