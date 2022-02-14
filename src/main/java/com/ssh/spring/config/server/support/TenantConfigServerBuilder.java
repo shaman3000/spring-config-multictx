@@ -5,10 +5,10 @@ import com.ssh.spring.config.tenant.ConfigServerTenant;
 import org.springframework.boot.ConfigurableBootstrapContext;
 import org.springframework.boot.DefaultBootstrapContext;
 import org.springframework.boot.context.config.ConfigDataEnvironmentPostProcessor;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.PropertiesPropertySource;
 import org.springframework.core.env.StandardEnvironment;
 import org.springframework.core.io.DefaultResourceLoader;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import java.util.Properties;
@@ -32,7 +32,7 @@ public class TenantConfigServerBuilder {
         return env;
     }
 
-    public ConfigurableApplicationContext createTenant() {
+    public WebApplicationContext createTenant() {
         final String tenantId = properties.getTenantId();
         final StandardEnvironment env = createEnvironment();
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext() {{
